@@ -1,4 +1,4 @@
-const BASE = (import.meta.env.VITE_API_URL || 'https://myselina.pythonanywhere.com').replace(/\/$/, '');
+const BASE = (import.meta.env.VITE_API_URL || 'your API').replace(/\/$/, '');
 const ACCESS = 'schooltests_access';
 const REFRESH = 'schooltests_refresh';
 export const authStore = {
