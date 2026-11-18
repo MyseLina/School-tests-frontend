@@ -43,6 +43,11 @@ export const api = {
   createTest:(body)=>request('/api/test/',{method:'POST',body:JSON.stringify(body)}), deleteTest:(id)=>request(`/api/test/${id}/`,{method:'DELETE'}),
   startTest:(id)=>request(`/api/test/${id}/start/`,{method:'POST',body:'{}'}), answer:(id,question_id,variant)=>request(`/api/test/${id}/answer/`,{method:'POST',body:JSON.stringify({question_id,variant})}), finish:(id)=>request(`/api/test/${id}/finish/`,{method:'POST',body:'{}'}),
   createClass:(b)=>request('/api/classes/',{method:'POST',body:JSON.stringify(b)}), createSubject:(b)=>request('/api/subject/',{method:'POST',body:JSON.stringify(b)}),
+  createUser: (body) =>
+  request('/auth/users/', {
+    method: 'POST',
+    body: JSON.stringify(body)
+  }),
 };
 export function unwrap(d){ if(Array.isArray(d))return d; return d?.results || d?.data || []; }
 function decode(token){try{return JSON.parse(atob(token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')))}catch{return {}}}
